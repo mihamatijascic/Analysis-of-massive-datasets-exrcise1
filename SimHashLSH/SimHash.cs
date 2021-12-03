@@ -42,7 +42,7 @@ namespace SimHashLSH
         {
             int numberOfTexts = int.Parse(ReadLine());
             //default function that gets candidates for similar texts,
-            //simple way to select candidates is that all texts are candidates
+            //simple way to implement func is to say that all text's are candidates
             QueryCandidateIds = (id) => Enumerable.Range(0, numberOfTexts - 1);
             for (int i = 0; i < numberOfTexts; i++)
             {

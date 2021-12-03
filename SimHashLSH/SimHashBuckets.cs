@@ -36,28 +36,34 @@ namespace SimHashLSH
                 Dictionary<int, HashSet<int>> buckets = new Dictionary<int, HashSet<int>>();
                 for (int fingerPrintId = 0; fingerPrintId < Hash.FingerPrints.Count; fingerPrintId++)
                 {
-                    var fingerPrint = Hash.FingerPrints[fingerPrintId];
-                    int bucketId = HashToInt(fingerPrint, bandLength * band, bandLength * band + bandLength);
-                    HashSet<int> fingerprintIdsInBucket = new HashSet<int>();
-                    if (buckets.ContainsKey(bucketId))
-                    {
-                        fingerprintIdsInBucket = buckets[bucketId];
-                        foreach (var id in fingerprintIdsInBucket)
-                        {
-                            AddNewCandidate(fingerPrintId, id);
-                            AddNewCandidate(id, fingerPrintId);
-                        }
-                    }
-                    else
-                    {
-                        buckets.Add(bucketId, null);
-                    }
-
-                    fingerprintIdsInBucket.Add(fingerPrintId);
-                    buckets[bucketId] = fingerprintIdsInBucket;
+                    AddFingerprintToBucket(fingerPrintId, band, bandLength, buckets);
                 }
             }
         } 
+
+        private void AddFingerprintToBucket(int fingerPrintId, int band, int bandLength, Dictionary<int, HashSet<int>> buckets)
+        {
+            var fingerPrint = Hash.FingerPrints[fingerPrintId];
+            int bucketId = HashToInt(fingerPrint, bandLength * band, bandLength * band + bandLength);
+            HashSet<int> fingerprintIdsInBucket = new HashSet<int>();
+            
+            if (buckets.ContainsKey(bucketId))
+            {
+                fingerprintIdsInBucket = buckets[bucketId];
+                foreach (var id in fingerprintIdsInBucket)
+                {
+                    AddNewCandidate(fingerPrintId, id);
+                    AddNewCandidate(id, fingerPrintId);
+                }
+            }
+            else
+            {
+                buckets.Add(bucketId, null);
+            }
+
+            fingerprintIdsInBucket.Add(fingerPrintId);
+            buckets[bucketId] = fingerprintIdsInBucket;
+        }
 
         private void AddNewCandidate(int id, int candidateId)
         {

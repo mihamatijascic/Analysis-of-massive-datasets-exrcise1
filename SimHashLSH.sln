@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30907.101
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimHashLSH", "SimHashLSH\SimHashLSH.csproj", "{EBD13E10-979A-4AC2-AEA2-B719011B605B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EBD13E10-979A-4AC2-AEA2-B719011B605B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EBD13E10-979A-4AC2-AEA2-B719011B605B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EBD13E10-979A-4AC2-AEA2-B719011B605B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EBD13E10-979A-4AC2-AEA2-B719011B605B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4C9EA6B6-6A4F-42F8-B71B-556F14451618}
+	EndGlobalSection
+EndGlobal
